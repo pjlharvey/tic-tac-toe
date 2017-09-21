@@ -10,7 +10,7 @@ This is a maven SpringBoot project with an embedded Tomcat server, which will st
 
 * Run from an IDE with maven support, such as Eclipse, by running the `com.pharvey.Application.java` class as a Java Application.
 * Build with maven, then execute
-    `java -jar target/TicTacToe-0.0.1-SNAPSHOT.jar`
+    `java -jar target/tic-tac-toe-0.0.1-SNAPSHOT.jar`
 * Use the Springboot maven plugin, and execute :
     `mvn spring-boot:run`
 
