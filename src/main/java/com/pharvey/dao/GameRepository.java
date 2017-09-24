@@ -60,13 +60,23 @@ public class GameRepository {
 	 */
 	public Game getGame(Integer gameId) {
 
+		logger.debug("Entry: {}", gameId);
+		
 		return games.get(gameId);
 	}
 
+	/**
+	 * Update a game in the repository, keyed on the gameId
+	 * @param game The game to replace in the repository
+	 */
 	public void updateGame(Game game) {
 
+		logger.debug("Entry: {}", game);
+		
 		//Games repo represented by a ConcurrentHashMap, so no threading issues during update 
 		games.replace(game.getGameId(), game);
+		
+		logger.debug("Exit: {}", game);
 
 	}
 

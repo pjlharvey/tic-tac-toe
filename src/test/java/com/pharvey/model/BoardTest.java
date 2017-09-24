@@ -16,26 +16,26 @@ public class BoardTest {
 	@Parameters
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
-				// Row
-				{ Player.CROSS, true, false, Player.CROSS, new Player[] { Player.CROSS, Player.CROSS, Player.CROSS, Player.NOUGHT, null, Player.NOUGHT, null, Player.NOUGHT, null } },
-				// Diagonal
-				{ Player.CROSS, true, false, Player.CROSS, new Player[] { Player.CROSS, null, Player.NOUGHT, null, Player.CROSS, null, Player.NOUGHT, Player.NOUGHT, Player.CROSS } },
-				// Column
-				{ Player.CROSS, true, false, Player.NOUGHT, new Player[] { Player.CROSS, null, Player.NOUGHT, Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, null } },
-				// No winner
-				{ Player.CROSS, false, false, Player.CROSS, new Player[] { null, Player.NOUGHT, null, Player.NOUGHT, null, null, Player.CROSS, null, Player.CROSS } },
-				// Row
-				{ Player.NOUGHT, true, false, Player.NOUGHT, new Player[] { Player.CROSS, null, Player.CROSS, Player.NOUGHT, Player.NOUGHT, Player.NOUGHT, Player.CROSS, Player.CROSS, null } },
-				// Diagonal
-				{ Player.NOUGHT, true, false, Player.CROSS, new Player[] { Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, null, Player.NOUGHT, Player.NOUGHT, Player.CROSS } },
-				// Column
-				{ Player.NOUGHT, true, false, Player.CROSS, new Player[] { Player.CROSS, Player.NOUGHT, Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS, null, Player.NOUGHT, Player.NOUGHT } },
-				// No winner
-				{ Player.NOUGHT, false, false, Player.NOUGHT, new Player[] { Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, null, Player.NOUGHT, null } },
-				// Draw
-				{ Player.NOUGHT, false, true, Player.NOUGHT, new Player[] { Player.CROSS, Player.NOUGHT, Player.NOUGHT, Player.NOUGHT, Player.CROSS, Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS } },
-				// Draw
-				{ Player.NOUGHT, false, true, Player.NOUGHT, new Player[] { Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS } }
+		// Row
+		{ Player.CROSS, true, false, Player.CROSS, new Player[] { Player.CROSS, Player.CROSS, Player.CROSS, Player.NOUGHT, null, Player.NOUGHT, null, Player.NOUGHT, null } },
+		// Diagonal
+		{ Player.CROSS, true, false, Player.CROSS, new Player[] { Player.CROSS, null, Player.NOUGHT, null, Player.CROSS, null, Player.NOUGHT, Player.NOUGHT, Player.CROSS } },
+		// Column
+		{ Player.CROSS, true, false, Player.NOUGHT, new Player[] { Player.CROSS, null, Player.NOUGHT, Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, null } },
+		// No winner
+		{ Player.CROSS, false, false, Player.CROSS, new Player[] { null, Player.NOUGHT, null, Player.NOUGHT, null, null, Player.CROSS, null, Player.CROSS } },
+		// Row
+		{ Player.NOUGHT, true, false, Player.NOUGHT, new Player[] { Player.CROSS, null, Player.CROSS, Player.NOUGHT, Player.NOUGHT, Player.NOUGHT, Player.CROSS, Player.CROSS, null } },
+		// Diagonal
+		{ Player.NOUGHT, true, false, Player.CROSS, new Player[] { Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, null, Player.NOUGHT, Player.NOUGHT, Player.CROSS } },
+		// Column
+		{ Player.NOUGHT, true, false, Player.CROSS, new Player[] { Player.CROSS, Player.NOUGHT, Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS, null, Player.NOUGHT, Player.NOUGHT } },
+		// No winner
+		{ Player.NOUGHT, false, false, Player.NOUGHT, new Player[] { Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, null, Player.NOUGHT, null } },
+		// Draw
+		{ Player.NOUGHT, false, true, Player.NOUGHT, new Player[] { Player.CROSS, Player.NOUGHT, Player.NOUGHT, Player.NOUGHT, Player.CROSS, Player.CROSS, Player.CROSS, Player.NOUGHT, Player.CROSS } },
+		// Draw
+		{ Player.NOUGHT, false, true, Player.NOUGHT, new Player[] { Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS, Player.NOUGHT, Player.CROSS } }
 
 		});
 	}

@@ -2,8 +2,12 @@ package com.pharvey.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Game {
+	
+	Logger logger = LoggerFactory.getLogger(Game.class);
 
 	private Integer gameId;
 	private Board board;
@@ -17,14 +21,49 @@ public class Game {
 
 	}
 
+	/**
+	 * Set the game status based for a player (win or draw, and the winner if any) based on the current board position
+	 * @param player whose position is being checked for a possible game status update
+	 */
 	public void refreshStatus(Player player) {
+		
+		logger.debug("Entry: {}", player);
 		
 		if (board.checkForDraw()) {
 			gameStatus = GameStatus.DRAW;
 		} else if (board.checkIfPlayerHasWon(player)) {
 			gameStatus = GameStatus.WON;
 			gameWinner = player;
-		}		
+		}	
+		
+		logger.debug("Exit");
+	}
+
+	/**
+	 * Take a move in x,y co-ordinate format, and apply to the current board cell state, in its simple 9 element array format
+	 * @param move To apply to the board
+	 */
+	public void applyMove(Move move) {
+		
+		board.applyMove(move);
+				
+	}
+	/**
+	 * Get the next player in the rules of noughts and crosses
+	 * @return The player whose turn it is next
+	 */
+	public Player getNextPlayer() {
+		
+		return board.getNextPlayer();
+	}
+	
+	/**
+	 * Get the current state of the cells on the board
+	 * @return The state of the cells on the board
+	 */	
+	public Player getCellState(Move move) {
+		
+		return board.getCellState(move);
 	}
 
 	public Integer getGameId() {
@@ -63,23 +102,6 @@ public class Game {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
 	
-	public void applyMove(Move move) {
-		
-		board.applyMove(move);
-				
-	}
-	
-	public Player getNextPlayer() {
-		
-		return board.getNextPlayer();
-	}
-	
-	public Player getCellState(Move move) {
-		
-		return board.getCellState(move);
-	}
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

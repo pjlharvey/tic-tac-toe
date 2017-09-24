@@ -65,6 +65,8 @@ public class GameController {
 	 */
 	public Game makeMove(Integer gameId, Move move) throws IllegalMoveException {
 		
+		logger.debug("Entry: {} {}", gameId, move);
+		
 		Game game = gameRepository.getGame(gameId);
 		
 		if (game == null) {
@@ -77,13 +79,17 @@ public class GameController {
 			game.applyMove(move);
 			game.refreshStatus(move.getPlayer());
 			gameRepository.updateGame(game);
+			logger.info("New move made for game {} : {}", gameId, move);		
 		}
 
+		logger.debug("Entry: {}", gameId);
+		
 		return game;
 	}
 
 	private void validateMove(Move move, Game game) throws IllegalMoveException {
 		
+		logger.debug("Entry: {} {}", move, game);
 		
 		if (game.getGameStatus() != GameStatus.IN_PROGRESS) {
 			throw new IllegalMoveException(String.format("Illegal move : Game ID %s is not currently in progress. Its status is %s", game.getGameId(), game.getGameStatus()));
@@ -105,6 +111,8 @@ public class GameController {
 		Player player = game.getCellState(move);
 		if (player != null) {
 			throw new IllegalMoveException(String.format("Illegal move : Position row %s column %s is already occupied with a %s", move.getRow(), move.getColumn(), player));
-		}		
+		}
+		
+		logger.debug("Exit: {} {}", move, game);
 	}
 }
